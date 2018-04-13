@@ -1,2 +1,6 @@
 # eth-olympics
-JS drag and drop game implemented on ethereum blockchain
+JS drag and drop game implemented on Ethereum blockchain.
+
+Check it out at - http://etherolympics.com/
+
+
