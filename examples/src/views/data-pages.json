@@ -1,0 +1,23 @@
+
+{
+  "DataPages": [
+    {
+      "EtherOlympics": [
+        "Pick Countries",
+        "Rules",
+        "Country Prices"
+      ]
+    },
+    {
+      "Results": [
+        "Top Teams"
+      ]
+    },
+    {
+      "About": [
+        "Smart Contract",
+        "About us"
+      ]
+    }
+  ]
+}

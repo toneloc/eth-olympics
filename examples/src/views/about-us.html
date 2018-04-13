@@ -1,0 +1,60 @@
+{% extends 'views/templates/document.html' %}
+
+{% import 'components/Document/Head.html' as Head %}
+{% import 'components/Sidebar/Sidebar.html' as Sidebar %}
+{% import 'components/PageHeader/PageHeader.html' as PageHeader %}
+
+{% import 'content/rules.html' as Rules %}
+
+{% set ViewAttrs = {
+  id: 'SimpleList',
+  parent: 'Top Ten EtherOlympics Teams',
+  child: 'Top Teams',
+  subheading: 'These Top 10 teams (including ties) will receive payouts if the Olympics ended today. Please allow a day or so for the results to update.'
+} %}
+
+{% block PageId %}{{ ViewAttrs.id }}{% endblock %}
+
+{% block head %}
+  {{ Head.render(ViewAttrs) }}
+{% endblock %}
+
+{% block sidebar %}
+  {{ Sidebar.render(ViewAttrs, DataPages) }}
+{% endblock %}
+
+{% block main %}
+
+ <h3 class="Heading Heading--size1 Heading--colorBlack">About us</h3>
+
+ <h3 class="Heading Heading--size3 Heading--colorBlack">
+
+ <p>Ricardo Moises and Christoph Fischer are Berlin-based developers interested in distributed gaming, winter sports, and international peace. 📡 ⛷ ☮
+
+ <br><br>
+ We are excited about a world where global goodwill and cooperation across national borders is made possible by cryptocurrencies and blockchain technololgy. </p>
+ <br>
+
+ <p>To contact us, please email etherolympics@protonmail.com.</p>
+
+ </h3>
+
+ <br>
+<br>
+<br>
+<br>
+<br>
+<span class="notranslate">
+<h2 class="Subheading">
+Good luck!  <br>
+加油! <br>
+Veel geluk! <br>
+Bonne chance! <br>
+행운을 빕니다 <br>
+Buena suerte!
+</span>
+ </h2>
+<br>
+<br>
+
+{% endblock %}

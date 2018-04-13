@@ -1,0 +1,24 @@
+{% import '../../../components/StackedList/StackedListItem.html' as StackedListItem %}
+
+{% macro render(id) %}
+  <section id="{{ id }}" class="{{ id }}">
+    <article class="StackedListWrapper">
+      <header class="StackedListHeader">
+        <h3 class="Heading Heading--size3 Heading--colorWhite">Top Ten EtherOlympics Teams</h3>
+      </header>
+
+      <ul class="StackedList">
+        {{ StackedListItem.render('Top team #1',   {index: 1}) }}
+        {{ StackedListItem.render('Top team #2',   {index: 2}) }}
+        {{ StackedListItem.render('Top team #3',   {index: 3}) }}
+        {{ StackedListItem.render('Top team #4',   {index: 4}) }}
+        {{ StackedListItem.render('Top team #5',   {index: 5}) }}
+        {{ StackedListItem.render('Top team #6',   {index: 6}) }}
+        {{ StackedListItem.render('Top team #7',   {index: 7}) }}
+        {{ StackedListItem.render('Top team #8',   {index: 8}) }}
+        {{ StackedListItem.render('Top team #9',   {index: 9}) }}
+        {{ StackedListItem.render('Top team #10',   {index: 10}) }}
+      </ul>
+    </article>
+  </section>
+{% endmacro %}

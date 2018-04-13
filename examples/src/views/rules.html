@@ -1,0 +1,166 @@
+{% extends 'views/templates/document.html' %}
+
+{% import 'components/Document/Head.html' as Head %}
+{% import 'components/Sidebar/Sidebar.html' as Sidebar %}
+{% import 'components/PageHeader/PageHeader.html' as PageHeader %}
+
+{% import 'content/rules.html' as Rules %}
+{% import 'content/Droppable/OneAndOnly/OneAndOnly.html' as OneAndOnly %}
+
+{% set ViewAttrs = {
+  id: 'OneAndOnly',
+  parent: 'EtherOlympics',
+  child: 'One and only',
+  subheading: 'Pick six countries for your EtherOlympics team, but stay under the $12,000 budget.'
+} %}
+
+{% block PageId %}{{ ViewAttrs.id }}{% endblock %}
+
+{% block head %}
+  {{ Head.render(ViewAttrs) }}
+{% endblock %}
+
+{% block sidebar %}
+  {{ Sidebar.render(ViewAttrs, DataPages) }}
+{% endblock %}
+
+{% block main %}
+
+ <h3 class="Heading Heading--size1 Heading--colorBlack">EtherOlympics Rules 🌎 🇰🇷</h3>
+
+<h2 class="Subheading">We are brought together in Pyeong Chang 평창군, Korea for our quadrennial celebration of ski-jumps, international goodwill, and alpine riflery!
+ </h2>
+ <br>
+ <br>
+
+<h3 class="Heading Heading--size3 Heading--colorBlack">
+
+<br>
+ <p>1. EtherOlympics is a game specifically designed for the 2018 Winter Olympics and operated on the Ethereum blockchain. 42 eligible Olympic countries were assigned prices in the EtherOlympics smart contract based on how well each is predicted to do in the Olympics. Germany and Norway, for example, are expensive; India and Spain are cheap. See the full country prices <a href="./country-prices.html" target="_blank">here.</a></p>
+ <br>
+ <p>2. Participants shall select 6 countries to represent their team, but they must stay under a $12000 total budget.</p>
+ <br>
+ <p>3. Submit your teams to the Ethereum main network using the <a href="https://metamask.io/" target="_blank">Metamask browser plugin</a>. You may also interact with the smart contract with a service like MyEtherWallet or Etherscan.</p>
+  <br>
+ <p>4. You may submit many teams. Each team submission costs 0.1 ether. Of course, you may also copy the teams already recorded in the blockchain, to ensure your success!
+</p>
+ <br>
+ <p>5. Submissions will be accepted until block number <b>5100000</b>, or around Feb. 16. <b>However</b>, teams submitted after the start of the Olympics at block 5060000 (around Feb. 10) shall have their scores discounted at a rate of 1/100 per block, or around 6% per day. 
+ <br>
+ <br>
+ <b>Example</b>: Your team score is 1000, but you submitted 10000 blocks late, so your team score will be discounted by 100. Your team score is 900. 
+ <br>
+ <br>
+If you watch the Olympics closely, you may find a winning strategy! But remember that anyone can copy your team until block 5100000! 😛
+ <br>
+ <br>
+ <p>6. As your countries earn medals, your team earns points. For each Gold medal a country on your team receives, you get 100 points; Silver medals earns 60 points each; Bronze medals earn 30 points each.
+ <br>
+ <br>
+ <table style="width:60%" border="3px" padding="5px">
+  <tr>
+    <th>Medal</th> 
+    <th>Points</th>
+  </tr>
+  <tr>
+    <td>Gold 🥇 </td>
+    <td>100</td> 
+  </tr>
+  <tr>
+    <td>Silver 🥈 </td>
+    <td>60</td> 
+  </tr>
+  <tr>
+    <td>Bronze 🥉 </td>
+    <td>30</td> 
+  </tr>
+ </p>
+<br>
+ <p>7. The top ten scores will earn payouts, as follows: 
+
+  <br>
+  <br>
+  <table style="width:60%" border="3px" padding="5px">
+  <tr>
+    <th>Result</th> 
+    <th>% of Prize</th>
+    <span class="notranslate">
+  </tr>
+  <tr>
+    <td>1st</td>
+    <td>25%</td> 
+  </tr>
+  <tr>
+    <td>2nd</td>
+    <td>20%</td> 
+  </tr>
+   <tr>
+    <td>3rd</td>
+    <td>15%</td> 
+  </tr>
+   <tr>
+    <td>4th</td>
+    <td>10%</td> 
+  </tr>
+   <tr>
+    <td>5th</td>
+    <td>8%</td> 
+  </tr>
+   <tr>
+    <td>6th</td>
+    <td>6%</td> 
+  </tr>
+   <tr>
+    <td>7th</td>
+    <td>4%</td> 
+  </tr>
+   <tr>
+    <td>8th</td>
+    <td>3%</td> 
+  </tr>
+   <tr>
+    <td>9th</td>
+    <td>2%</td> 
+  </tr>
+   <tr>
+    <td>10th</td>
+    <td>1%</td> 
+  </tr>
+   <tr>
+    <td>House cut</td>
+    <td>6%</td> 
+  </tr>
+      </span>
+</table>
+</p>
+<br>
+<p>8. In the event of a tie, payouts will be allocated according to how many participants are tied. For example, if three participants are tied for first place, then each of the 3 first place winners will receive 25% (First place prize) + 20% (Second place prize) + 15% (third place prize) / 3 = 20% each. Fourth place will receive the regular 10%, and so on. If more than one team is tied by tenth place, then those teams will share the 1% prize. 
+</p>
+ <br>
+ <p>8. Follow the schedule on the official website <span class="notranslate"><a href="https://www.pyeongchang2018.com" target="_blank">https://www.pyeongchang2018.com</a></span></p>
+ <br>
+ <p>9. If you have difficulty submitting to the Etherum blockchain or have other questions, please email <span class="notranslate"><b>etherolympics@protonmmail.com</b></span>.</p>
+ 
+ <br>
+ <p>Happy Olympics! Wishing all participants good sportsmanship and athletic and mathematic camaraderie!</p>
+ <br>
+ <br>
+ </h3>
+
+<br>
+<br>
+<h3 class="Heading Heading--size2 Heading--colorBlack">Pick your team <u><a href="./pick-countries.html">here</a></u>.</h3>
+<span class="notranslate">
+<h2 class="Subheading">
+Good luck!  <br>
+加油! <br>
+Veel geluk! <br>
+Bonne chance! <br>
+행운을 빕니다 <br>
+Buena suerte!
+ </h2>
+</span>
+<br>
+<br>
+
+{% endblock %}

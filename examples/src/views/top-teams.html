@@ -1,0 +1,45 @@
+{% extends 'views/templates/document.html' %}
+
+{% import 'components/Document/Head.html' as Head %}
+{% import 'components/Sidebar/Sidebar.html' as Sidebar %}
+{% import 'components/PageHeader/PageHeader.html' as PageHeader %}
+
+{% import 'content/Sortable/SimpleList/SimpleList.html' as SimpleList %}
+
+{% set ViewAttrs = {
+  id: 'SimpleList',
+  parent: 'Top Teams  🌎 🇰🇷',
+  child: 'Top Teams',
+  subheading: 'These top teams (including ties) will receive payouts if the Olympics ended today. Please allow a day or so for the results to update. Teams will be recorded here for easy copying.'
+} %}
+
+{% block PageId %}{{ ViewAttrs.id }}{% endblock %}
+
+{% block head %}
+  {{ Head.render(ViewAttrs) }}
+{% endblock %}
+
+{% block sidebar %}
+  {{ Sidebar.render(ViewAttrs, DataPages) }}
+{% endblock %}
+
+{% block main %}
+  {{ PageHeader.render(ViewAttrs.parent, ViewAttrs.subheading) }}
+  {{ SimpleList.render(ViewAttrs.id) }}
+
+  <br>
+<br>
+<br>
+<br>
+<br>
+<h2 class="Subheading">
+Good luck!  <br>
+加油! <br>
+Veel geluk! <br>
+Bonne chance! <br>
+행운을 빕니다 <br>
+Buena suerte!
+ </h2>
+<br>
+<br>
+{% endblock %}

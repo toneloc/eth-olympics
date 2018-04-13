@@ -1,0 +1,701 @@
+{% import '../../../components/Block/Block.html' as Block %}
+
+{% macro render(id) %}
+  <style>
+    html { // https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+  box-sizing: border-box;
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+} // if you don't already reset your box-model, read about it
+
+.input-w {
+  display: block;
+  width: 100%; // should be contained by a form or something
+  margin-bottom: 1rem;
+  @media (min-width: 500px) {
+    display: flex;
+    flex-directio3: row;
+    align-items: center;
+  }
+  .label, .input {
+    display: block;
+    width: 100%;
+    border: 1px solid rgba(0,0,0,.1);
+    @media (min-width: 500px) {
+      width: auto;
+      display: flex;
+    }
+  }
+  .label {
+    font-size: 33px;
+    @media (min-width: 500px) {
+      /* margin-right: 1rem; */
+      min-width: 100px; // maybe to match many?
+    }
+  }
+  .input {
+    padding: .5rem;
+    font-size: 16px;
+    @media (min-width: 500px) {
+      flex-grow: 1;
+      max-width: 450px; // arbitrary
+    }
+  }
+  }
+
+  .sticky {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  background-color: white;
+  z-index: 10;
+}
+
+  </style>
+
+  <section id="{{ id }}" class="{{ id }}">
+  
+
+  <div class="sticky">
+  <div style="float: left">
+  <label class='input-w' for='team-name'>
+    <span class='label Heading Heading--size4 text-no-select'>Team name:   </span>
+    <form style = "display:inline">
+      <input autofocus='autofocus' class='input Heading Heading--size4 text' type='text' id='team-name' style='border: 4px solid #000'>
+    </form>
+  </label>    
+  </div>
+
+<div style="text-align: right">
+
+  <label class='input-w' for='this-input-name'>
+    <span class='label Heading Heading--size4 text-no-select'>Remaining budget: </span>
+    <span id="remainingBudget" class='Heading Heading--size4 text-no-select' type='text' id='this-input-name'>$12000</span>
+  </label>
+</div>
+    <br>
+    <hr>
+    <article id="selections" class="BlockLayout BlockLayout--typeFlex">
+      <div id="country1" class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('Country 1 ','','', {type: 'Hollow'}) }}
+      </div>
+      <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('Country 2','','', {type: 'Hollow'}) }}
+      </div>
+      <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('Country 3','','', {type: 'Hollow'}) }}
+      </div>
+      <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('Country 4','','', {type: 'Hollow'}) }}
+      </div>
+       <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('Country 5','','', {type: 'Hollow'}) }}
+      </div>
+       <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('Country 6','','', {type: 'Hollow'}) }}
+      </div>
+           
+      <div class="BlockWrapper" data-droppable="" >
+        <div class="hover-item">
+        <button type="button" id="createTeamButton">
+          {{ Block.render(' Submit team! ','','', {index: `0, draggable: false}) }}
+        </button>
+        </div>
+      </div>
+    </article>
+    <h1><hr></h1>
+  </div>
+
+    <article class="BlockLayout BlockLayout--typeFlex">
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('AUS 🇦🇺','Australia','$1207', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('AUT 🇦🇹','Austria','$3507', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('BLR 🇧🇾','Belarus','$339', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('BEL 🇧🇪','Belgium','$490', {index: `15, draggable: true}) }}
+      </div>
+
+
+      <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('BRA 🇧🇷','Brazil','$50', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('CAN 🇨🇦','Canada','$6486', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('CHN 🇨🇳','China','$2941', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('CZE 🇨🇿','Czech Republic','$1961', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('EST 🇪🇪','Estonia','$50', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+      </div>
+
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('FIN 🇫🇮','Finland','$792', {index: `15, draggable: true}) }}
+      </div>
+
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('FRA 🇫🇷','France','$6486', {index: `15, draggable: true}) }}
+      </div>
+
+       <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('GER 🇩🇪', 'Germany', '$9087', {index: `15, draggable: true}) }}
+      </div>
+
+       <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('GHA 🇬🇭','Ghana ','$50', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('GBR 🇬🇧','Great Britain','$792', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('GRE 🇬🇷','Greece','$50', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('HUN 🇭🇺','Hungary','$339', {index: `15, draggable: true}) }}
+      </div>
+
+       <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('ISL 🇮🇸','Iceland','$50', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('IND 🇮🇳','India','$50', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('IRL 🇮🇪','Ireland','$50', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('ITA 🇮🇹','Italy','$1169', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('JAM 🇯🇲','Jamaica','$50', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('JPN  🇯🇵','Japan','$3544', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+      {{ Block.render('','','', {type: 'Stripes'}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('KAZ 🇰🇿','Kazakhstan','$113', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('LAT 🇱🇻','Latvia','$377', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+          {{ Block.render('LIE 🇱🇮','Liechtenstein','$377', {index: `15, draggable: true}) }}
+      </div>
+      
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('MEX  🇲🇽','Mexico','$50', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('NED  🇳🇱','Netherlands','$4412', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('NZL 🇳🇿','New Zealand','$113', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('NOR  🇳🇴', 'Norway', '$8748', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('PRK 🇰🇵','North Korea','$50', {index: `15, draggable: true}) }}
+      </div>
+
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('PHI 🇵🇭','Phillipines','$50', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+      </div>
+      
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('POL 🇵🇱','Poland','$867', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+      {{ Block.render('','','', {type: 'Stripes'}) }}
+      {{ Block.render('SRB 🇷🇸','Serbia','$50', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('SVK 🇸🇰','Slovakia','$452', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+      {{ Block.render('','','', {type: 'Stripes'}) }}
+      {{ Block.render('SLO 🇸🇮','Slovena','$490', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('KOR  🇰🇷','South Korea','$3318', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('ESP 🇪🇸','Spain','$339', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('SWE 🇸🇪','Sweden','$3507', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('SUI 🇨🇭','Switzerland','$3431', {index: `15, draggable: true}) }}
+      </div>
+
+       <div class="BlockWrapper BlockWrapper--isDroppable" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+      {{ Block.render('','','', {type: 'Stripes'}) }}
+      {{ Block.render('THA 🇹🇭','Thailand','$50', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+      {{ Block.render('','','', {type: 'Stripes'}) }}
+      {{ Block.render('UKR 🇺🇦','Ukraine','$113', {index: `15, draggable: true}) }}
+      </div>
+
+      <div class="BlockWrapper BlockWrapper--isDroppable draggable-droppable--occupied" data-droppable="">
+        {{ Block.render('','','', {type: 'Stripes'}) }}
+        {{ Block.render('USA 🇺🇸','United States','$7051', {index: `15, draggable: true}) }}
+      </div>
+
+    </article>
+    <br>
+    <br>
+    <br>
+     
+  </section>
+
+  <script type="text/javascript">
+
+  // Select the node that will be observed for mutations
+  var targetNode = document.getElementById('selections');
+
+  // Options for the observer (which mutations to observe)
+  var config = { attributes: true, childList: true };
+
+  // Callback function to execute when mutations are observed
+  var callback = function(mutationsList) {
+      for(var mutation of mutationsList) {
+          if (mutation.type == 'childList') {
+              console.log('A child node has been added or removed.');
+          }
+          else if (mutation.type == 'attributes') {
+            calculateRemainingBudget();
+
+          }
+      }
+  };
+
+  // Create an observer instance linked to the callback function
+  var observer = new MutationObserver(callback);
+
+  // Start observing the target node for configured mutations
+  observer.observe(targetNode, config);
+
+  function calculateRemainingBudget() {
+    var c1 = 0;
+            var c2 = 0;
+            var c3 = 0;
+            var c4 = 0;
+            var c5 = 0;
+            var c6 = 0;
+
+            if (document.querySelectorAll('#selections > div:nth-child(1) > a > div > h3.Heading.Heading--size3.text-no-select')[0] !=  null) {
+              var c1 = parseInt(document.querySelectorAll('#selections > div:nth-child(1) > a > div > h3.Heading.Heading--size3.text-no-select')[0].innerHTML.substr(1));
+            }
+
+            if (document.querySelectorAll('#selections > div:nth-child(2) > a > div > h3.Heading.Heading--size3.text-no-select')[0]  !=  null) {
+                var c2 = parseInt(document.querySelectorAll('#selections > div:nth-child(2) > a > div > h3.Heading.Heading--size3.text-no-select')[0].innerHTML.substr(1));
+            }
+
+           if (document.querySelectorAll('#selections > div:nth-child(3) > a > div > h3.Heading.Heading--size3.text-no-select')[0]  !=  null) {
+                var c3 =  parseInt(document.querySelectorAll('#selections > div:nth-child(3) > a > div > h3.Heading.Heading--size3.text-no-select')[0].innerHTML.substr(1));
+           }
+
+           if (document.querySelectorAll('#selections > div:nth-child(4) > a > div > h3.Heading.Heading--size3.text-no-select')[0] !=  null) {
+                var c4 = parseInt(document.querySelectorAll('#selections > div:nth-child(4) > a > div > h3.Heading.Heading--size3.text-no-select')[0].innerHTML.substr(1));
+           }
+
+           if (document.querySelectorAll('#selections > div:nth-child(5) > a > div > h3.Heading.Heading--size3.text-no-select')[0]  !=  null) {
+                var c5 = parseInt(document.querySelectorAll('#selections > div:nth-child(5) > a > div > h3.Heading.Heading--size3.text-no-select')[0].innerHTML.substr(1));
+           }
+
+           if (document.querySelectorAll('#selections > div:nth-child(6) > a > div > h3.Heading.Heading--size3.text-no-select')[0] !=  null)
+              {
+               var c6 = parseInt(document.querySelectorAll('#selections > div:nth-child(6) > a > div > h3.Heading.Heading--size3.text-no-select')[0].innerHTML.substr(1));
+           }
+
+           var remainingBudget = 12000 - (c1 + c2 + c3 + c4 + c5 +c6);
+       
+           console.log(remainingBudget);
+           document.getElementById("remainingBudget").innerHTML = "$" +remainingBudget;
+  }
+
+  function generateTeamName() {
+    var colors = ["Azure",
+"bagel",
+"beaver",
+"Beige",
+"biloxi",
+"Bisque",
+"Black",
+"bloodred",
+"bloodred",
+"Blue",
+"bluebell",
+"bluegray",
+"bluemoon",
+"brickred",
+"Brown",
+"calmair",
+"camel",
+"canary",
+"caravan",
+"centaur",
+"cerise",
+"cerulean",
+"citrus",
+"copper",
+"Coral",
+"coralred",
+"cornsilk",
+"Cornsilk",
+"Crimson",
+"Cyan",
+"DarkBlue",
+"DarkCyan",
+"DarkGray",
+"DarkRed",
+"DeepPink",
+"deepplum",
+"denim",
+"DimGray",
+"downy",
+"ebony",
+"eggnog",
+"eggplant",
+"Feldspar",
+"fern",
+"fig",
+"fire",
+"fishbowl",
+"flame",
+"flaming",
+"flesh",
+"fuchsia",
+"Fuchsia",
+"glow",
+"gold",
+"Gold",
+"goldbuff",
+"goldfish",
+"gray",
+"Gray",
+"Green",
+"HoneyDew",
+"hotlava",
+"HotPink",
+"inchworm",
+"Indigo",
+"infrared",
+"Ivory",
+"jetblack",
+"joyride",
+
+"Khaki",
+"lavender",
+"Lavender",
+"leapfrog",
+"leisure",
+"lielocks",
+"lily",
+"Lime",
+"Linen",
+"lionmane",
+"macaw",
+"magenta",
+"Magenta",
+"mahogany",
+"maize",
+"manatee",
+"mandarin",
+"marigold",
+"maroon",
+"Maroon",
+"melon",
+"mesa",
+"Moccasin",
+"moonmist",
+"moss",
+"mountain",
+"mulberry",
+"Navy",
+"navyblue",
+"newrose",
+"OldLace",
+"Olive",
+"Orange",
+"orchid",
+"Orchid",
+"outback",
+"parmesan",
+"peach",
+"Peru",
+"pigpink",
+"pinetop",
+"Pink",
+"plum",
+"Plum",
+"poppyred",
+"Purple",
+"raven",
+
+"Red",
+"redred",
+"redtulip",
+"redwine",
+"rosered",
+"rubine",
+"rubyred",
+"ryegrass",
+"salmon",
+"Salmon",
+"seagreen",
+"seagreen",
+"SeaGreen",
+"seakelp",
+"SeaShell",
+"sepia",
+"shadow",
+"shamrock",
+"Sienna",
+"silk",
+"silver",
+"Silver",
+"skyblue",
+"SkyBlue",
+"Snow",
+"stardust",
+"strawhat",
+"sunglint",
+"sunglow",
+"sunporch",
+"sunray",
+"tan",
+"Tan",
+"Teal",
+"tealblue",
+"thistle",
+"Thistle",
+"Tomato",
+"torchred",
+"tweed",
+"twinkle",
+"ultrared",
+"vibrant",
+"Violet",
+"warmglow",
+"warmgold",
+"wheat",
+"Wheat",
+"white",
+"White",
+"wildfire",
+"windsong",
+"wisteria",
+"Yellow"];
+    var actions = ["skier",
+"jumper",
+"bobsledder",
+"skater",
+"snowman",
+"snowbunny",
+"iceman",
+"icedog",
+"polarbear",
+"seal",
+"penguin",
+"fox",
+"curler",
+"snowboarder",
+"skier",
+"skipro",
+"shredder",
+"hockey",
+"luger",
+"dancer",
+"athlete",
+"hiker",
+"shooter",
+"icepicker",
+"cat",
+"narwhal",
+"walrus",
+"wolf",
+"whale",
+"moose",
+"puffin",
+"reindeer",
+"goose",
+"caribou",
+"miner",
+"satoshi",
+"crypto",
+"block",
+"prover",
+"hacker",
+"validator",
+"signer",
+"staker",
+"scripter",
+"byzantium",
+"mister",
+"hare",
+"eskimo",
+"furball",
+"igloo",
+"frost",
+"fire",
+"skipole",
+"bobsled",
+"iceskate",
+"slalom",
+"country",
+"snowshoe",
+"sniper",
+"beaver",
+"mountain",
+"icerink"];
+
+var newTeamName =  colors[Math.floor(Math.random()*colors.length)] +
+actions[Math.floor(Math.random()*actions.length)] + (Math.floor(Math.random() * (1000 - 10 + 1)) + 10);
+console.log(newTeamName);
+ document.getElementById("team-name").value = newTeamName;
+
+  }
+
+  generateTeamName();
+  </script>
+
+
+{% endmacro %}

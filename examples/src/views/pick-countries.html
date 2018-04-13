@@ -1,0 +1,46 @@
+{% extends 'views/templates/document.html' %}
+
+{% import 'components/Document/Head.html' as Head %}
+{% import 'components/Sidebar/Sidebar.html' as Sidebar %}
+{% import 'components/PageHeader/PageHeader.html' as PageHeader %}
+
+{% import 'content/Droppable/OneAndOnly/OneAndOnly.html' as OneAndOnly %}
+
+{% set ViewAttrs = {
+  id: 'OneAndOnly',
+  parent: '2018 EtherOlympics 평창군 🌎 🇰🇷',
+  child: 'EtherOlympics',
+  subheading: 'Drag-and-drop six countries for your team, but stay under the $12,000 budget. Submit your team to the Ethereum blockchain with MetaMask to play in the 2018 Winter EtherOlympics!'
+} %}
+
+{% block PageId %}{{ ViewAttrs.id }}{% endblock %}
+
+{% block head %}
+  {{ Head.render(ViewAttrs) }}
+{% endblock %}
+
+{% block sidebar %}
+  {{ Sidebar.render(ViewAttrs, DataPages) }}
+{% endblock %}
+
+{% block main %}
+  {{ PageHeader.render(ViewAttrs.parent, ViewAttrs.subheading) }}
+  {{ OneAndOnly.render(ViewAttrs.id) }}
+<br>
+<br>
+<h3 class="Heading Heading--size2 Heading--colorBlack">Read the rules <u><a href="./rules.html">here</a></u>.</h3>
+<br>
+<br>
+<span class="notranslate">
+<h2 class="Subheading">
+Good luck!  <br>
+加油! <br>
+Veel geluk! <br>
+Bonne chance! <br>
+행운을 빕니다 <br>
+Buena suerte!
+ </h2>
+ </span>
+<br>
+<br>
+{% endblock %}

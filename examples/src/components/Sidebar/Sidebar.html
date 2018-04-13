@@ -1,0 +1,19 @@
+{% import '../Navigation/Navigation.html' as Navigation %}
+
+{% macro render(ViewAttrs, DataPages) %}
+  <aside id="Sidebar" class="Sidebar" aria-hidden="true">
+    <header class="SidebarHeader">
+      {% include '../Brand/Brand.html' %}
+    </header>
+
+    {{ Navigation.render(ViewAttrs, DataPages) }}
+
+    <footer class="SidebarFooter">
+    	<span class="label Heading--colorWhite Heading--size4 text-no-select">평창군</span>
+    	<br>
+    	<br>
+    	<br>
+    	 <p class="LegalText">The only official URL for the EtherOlympics is <b>EtherOlympics.com</b>.</p>
+    </footer>
+  </aside>
+{% endmacro %}
